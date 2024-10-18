@@ -93,4 +93,8 @@ class Entreprise {
      public function getAdresseComplete(){
           return $this->adresse." ".$this->cp." ".$this->ville;
      }
+
+     public function __toString(){
+          return $this->raisonSociale." (".$this->dateCreation->format('Y').")";
+     }
 }
