@@ -8,7 +8,7 @@ class Entreprise {
      private string $cp;
      private string $ville;
 
-     public function __construct(string $raisonSociale,string $dateCreation,string $adresse,string $cp,
+public function __construct(string $raisonSociale,string $dateCreation,string $adresse,string $cp,
      string $ville){
         $this->raisonSociale = $raisonSociale;
         $this->dateCreation = new Datetime($dateCreation);
@@ -21,14 +21,14 @@ class Entreprise {
 
 
 
-     public function getRaisonSociale():string
+public function getRaisonSociale():string
      {
           return $this->raisonSociale;
      }
 
      
    
-     public function setRaisonSociale($raisonSociale)
+public function setRaisonSociale($raisonSociale)
      {
           $this->raisonSociale = $raisonSociale;
 
@@ -36,12 +36,12 @@ class Entreprise {
      }
 
      
-     public function getDateCreation(): DateTime
+public function getDateCreation(): DateTime
      {
           return $this->dateCreation;
      }
 
-     public function setDateCreation($dateCreation)
+public function setDateCreation($dateCreation)
      {
           $this->dateCreation = $dateCreation;
 
@@ -49,26 +49,26 @@ class Entreprise {
      }
 
    
-     public function getAdresse(): string
+public function getAdresse(): string
      {
           return $this->adresse;
      }
 
      
-     public function setAdresse($adresse)
+public function setAdresse($adresse)
      {
           $this->adresse = $adresse;
 
           return $this;
      }
 
-     public function getCp(): string
+public function getCp(): string
      {
           return $this->cp;
      }
 
    
-     public function setCp($cp)
+public function setCp($cp)
      {
           $this->cp = $cp;
 
@@ -76,13 +76,13 @@ class Entreprise {
      }
 
    
-     public function getVille(): string
+public function getVille(): string
      {
           return $this->ville;
      }
 
 
-     public function setVille($ville)
+public function setVille($ville)
      {
           $this->ville = $ville;
 
@@ -90,11 +90,20 @@ class Entreprise {
      }
 
 
-     public function getAdresseComplete(){
+public function getAdresseComplete(){
           return $this->adresse." ".$this->cp." ".$this->ville;
      }
 
+
+public function getInfos(){
+
+
+        return $this." a été crée le ".$this->getDatecreation()->format
+        ("d.m.Y")." et se situe à l'adresse suivante ".$this->getAdresseComplete();
+     
+     }
+
      public function __toString(){
-          return $this->raisonSociale." (".$this->dateCreation->format('Y').")";
+          return $this->raisonSociale;
      }
 }
