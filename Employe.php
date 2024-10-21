@@ -81,6 +81,19 @@ class Employe {
     }
 
 
+
+
+    public function afficherEntreprises(){
+        $result = "<h2>Entreprises de $this</h2>";
+
+
+        foreach ($this->contrats as $contrat){
+             $result .= $contrat->getEntreprise()." (". $contrat->getDateEmbauche()." en ".$contrat->getTypeContrat().")<br>";
+        }
+
+        return $result;
+   }
+
     public function __toString(){
         return $this->prenom." ".$this->nom;
     }
