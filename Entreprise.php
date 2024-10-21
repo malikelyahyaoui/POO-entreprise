@@ -122,6 +122,20 @@ public function getInfos(){
      {
           $this->contrats[] = $contrat;
       }
+
+     
+     public function afficherEmployes(){
+          $result = "<h2>Employés de $this</h2>";
+
+
+          foreach ($this->contrats as $contrat){
+               $result .= $contrat->getEmploye()." (". $contrat->getDateEmbauche()  ." en ".$contrat->getTypeContrat().")<br>";
+          }
+
+          return $result;
+     }
+
+
      
      public function __toString(){
           return $this->raisonSociale;
