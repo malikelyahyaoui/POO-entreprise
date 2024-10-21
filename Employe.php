@@ -5,12 +5,15 @@ class Employe {
     private string $nom;
     private string $prenom;
     private string $email;
+    private Entreprise $entreprise;
 
 
-    public function __construct(string $nom,string $prenom, string $email){
+    public function __construct(string $nom,string $prenom, string $email,Entreprise $entreprise){
       $this->nom = $nom;
       $this->prenom = $prenom;
       $this->email = $email;
+      $this->entreprise = $entreprise;
+      $this->entreprise->addEmploye($this);
     }
 
 
@@ -59,7 +62,26 @@ class Employe {
         return $this;
     }
 
+    public function getEntreprise(): Entreprise
+    {
+        return $this->entreprise;
+    }
+
+    
+    public function setEntreprise( Entreprise $entreprise)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    public function getInfos(){
+        return $this." travaille dans l'entreprise ".$this->entreprise->getRaisonSociale()."<br>";
+    }
+
     public function __toString(){
         return $this->prenom." ".$this->nom;
     }
+
+   
 }
