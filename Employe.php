@@ -7,7 +7,7 @@ class Employe {
     private string $email;
 
 
-    public function _construct(string $nom,string $prenom, string $email){
+    public function __construct(string $nom,string $prenom, string $email){
       $this->nom = $nom;
       $this->prenom = $prenom;
       $this->email = $email;
@@ -57,5 +57,9 @@ class Employe {
         $this->email = $email;
 
         return $this;
+    }
+
+    public function __toString(){
+        return $this->prenom." ".$this->nom;
     }
 }
